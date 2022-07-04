@@ -25,7 +25,11 @@ source-repository head
 
 library
   exposed-modules:
+      Chap1
+      Chap4
+      Chap7
       Lib
+      Math
   other-modules:
       Paths_algo
   hs-source-dirs:
@@ -57,4 +61,5 @@ test-suite algo-test
   build-depends:
       algo
     , base >=4.7 && <5
+    , doctest
   default-language: Haskell2010
