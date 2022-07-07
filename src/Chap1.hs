@@ -145,3 +145,12 @@ filter' p = foldr (\b acc -> if p b then b:acc else acc) []
 -- takeWhile is proportional to the length of the result
 -- expressed in terms of foldr
 
+myFoldr :: (a -> b -> b) -> b -> [a] -> b
+myFoldr f e [] = e
+myFoldr f e (x:xs) = f x (myFoldr f e xs)
+
+-- >>> takeWhile' (\x -> x `mod` 2 == 0) [2,2,2,3,4]
+-- [2,2,2]
+
+takeWhile' :: (a -> Bool) -> [a] -> [a]
+takeWhile' p = foldr (\x acc -> if p x then x:acc else []) []
