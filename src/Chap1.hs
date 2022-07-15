@@ -1,4 +1,4 @@
-module Chap4 where
+module Chap1 where
 
 {-
 folding in haskell
