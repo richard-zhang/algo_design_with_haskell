@@ -154,3 +154,16 @@ myFoldr f e (x:xs) = f x (myFoldr f e xs)
 
 takeWhile' :: (a -> Bool) -> [a] -> [a]
 takeWhile' p = foldr (\x acc -> if p x then x:acc else []) []
+
+-- 1.8
+--
+-- >>> dropWhileEnd' (\x -> x `mod` 2 == 0) [1,4,3,6,2,4]
+-- [1,4,3]
+dropWhileEnd' :: (a -> Bool) -> [a] -> [a]
+dropWhileEnd' p = foldr (\x acc -> if p x && null acc then [] else x:acc ) []
+
+-- 1.9
+
+-- 1.10
+-- for all a b, a `op` b == b `op`  a
+-- for all a, a `op` e = e
