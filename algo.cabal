@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Chap1
+      Chap2
       Chap4
       Chap7
       Lib
