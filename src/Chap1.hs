@@ -164,6 +164,30 @@ dropWhileEnd' p = foldr (\x acc -> if p x && null acc then [] else x:acc ) []
 
 -- 1.9
 
+foldr'' f e xs = if null xs then e else  f (head xs) (foldr f e (tail xs))
+
+-- issue is last xs is O(n) and init xs is O(n)
+foldl'' f e xs = if null xs then e else f (foldl'' f e (init xs)) (last xs)
+
 -- 1.10
+
 -- for all a b, a `op` b == b `op`  a
 -- for all a, a `op` e = e
+-- **assosciate with identity element e** 
+
+-- 1.11
+-- >>> integer [1,4,8, 4, 9, 3]
+-- 148493
+-- >>> fraction [1,4,8,4,9,3]
+-- 0.148493
+integer :: [Int] -> Int
+integer = foldl (\acc x -> 10 * acc + x) 0
+
+fraction :: [Int] -> Double
+fraction = foldr (\x acc -> (fromIntegral x + acc) / 10.0) 0.0
+
+-- 1.12
+-- scanl ? scanr
+-- scan lemma
+
+-- 1.13
